@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import ServiceSelection from './ServiceSelection';
 import companyLogo from './dnts-logo2.png';
+// import GenAi from './GenAi.jpg'
 
 Amplify.configure(awsExports);
 
@@ -47,6 +48,7 @@ const signUpAttributes=['phone_number', 'family_name', 'given_name',]
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userFirstName, setUserFirstName] = useState('');
 
   useEffect(() => {checkAuthStatus();}, []);
 
@@ -54,6 +56,7 @@ export default function App() {
     try {
       const user = await Auth.currentAuthenticatedUser();
       setIsAuthenticated(!!user);
+      setUserFirstName(user.attributes.family_name || '');
     } catch (error) {
       setIsAuthenticated(false);
     }
@@ -88,6 +91,8 @@ export default function App() {
       {!isAuthenticated ? (
         // Render the Authenticator for login and signup
         <div>
+          {/* <div className="login-signup-container"/> */}
+          {/* <img src={GenAi} alt='Background Image' className='bg-image'/> */}
           <img src={companyLogo} alt="Company Logo" className="company-logo" />
           <br/>
           <Authenticator formFields={formFields} signUpAttributes={signUpAttributes} />
@@ -98,7 +103,7 @@ export default function App() {
 
         <div>
         {/* Your authenticated content goes here */}
-        <h1><center>Welcome User</center> </h1>
+        <h1 style={{ color: 'white' }}><center>Welcome {userFirstName}</center></h1>
         <br/>
         <ServiceSelection handleSelection={handleSelection} />
         {/* Sign out button */}

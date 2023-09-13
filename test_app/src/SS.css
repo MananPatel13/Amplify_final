@@ -7,6 +7,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center; /* Center-align the form content */
+  background-color: #ffffff;
 }
 
 .service-selection-form .form-group {
@@ -17,6 +18,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #000000;
 }
 
 .service-selection-form select {
@@ -38,6 +40,6 @@
 }
 
 .service-selection-form button:hover {
-  background-color: hsl(190, 95%, 40%);
+  background-color: hsl(291, 47%, 51%);
 }
 

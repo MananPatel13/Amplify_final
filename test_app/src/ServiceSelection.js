@@ -23,7 +23,7 @@ function ServiceSelection({ handleSelection }) {
 
   return (
     <form onSubmit={handleSubmit} className="service-selection-form">
-      <h2>Service Selection</h2>
+      <h2>Customise Usecase</h2>
 
       <div className="form-group">
         <label htmlFor="selectusecase">Select Usecase</label>
